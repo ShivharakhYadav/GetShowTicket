@@ -13,6 +13,8 @@ export const useSignupForm = () => {
     defaultValues: {
       email: "",
       password: "",
+      firstName: "",
+      lastName: "",
     },
   });
 
