@@ -90,6 +90,10 @@ module.exports = {
         caseSensitive: true,
       },
     ],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "import", "next": "export" },
+    ],
   },
   settings: {
     react: {
