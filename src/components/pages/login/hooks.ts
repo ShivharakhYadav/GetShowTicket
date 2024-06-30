@@ -17,32 +17,35 @@ export const useLoginForm = () => {
     },
   });
 
-  const onSubmit = useCallback(async (data: z.infer<typeof LoginFormSchema>) => {
-    try {
-      const res = await signIn("credentials", {
-        email: data.email,
-        password: data.password,
-        redirect: false,
-      });
-      if (res?.error) {
+  const onSubmit = useCallback(
+    async (data: z.infer<typeof LoginFormSchema>) => {
+      try {
+        const res = await signIn("credentials", {
+          email: data.email,
+          password: data.password,
+          redirect: false,
+        });
+        if (res?.error) {
+          toast({
+            variant: "destructive",
+            title: "Error",
+            description: "There was a problem with your request.",
+          });
+        } else {
+          toast({
+            description: "Loggedin Successfully.",
+          });
+        }
+      } catch (err) {
         toast({
           variant: "destructive",
           title: "Error",
           description: "There was a problem with your request.",
         });
-      } else {
-        toast({
-          description: "Loggedin Successfully.",
-        });
       }
-    } catch (err) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "There was a problem with your request.",
-      });
-    }
-  }, []);
+    },
+    [],
+  );
 
   return { onSubmit, form };
 };

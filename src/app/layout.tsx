@@ -37,7 +37,10 @@ const RootLayout = ({
         <div className="flex min-h-screen w-full flex-col">
           <header className="sticky top-0 flex h-16 items-center justify-between border-b bg-background px-4 md:px-6">
             <div className="flex items-center gap-4">
-              <Link href="#" className="flex items-center gap-2 text-lg font-semibold md:text-base">
+              <Link
+                href="#"
+                className="flex items-center gap-2 text-lg font-semibold md:text-base"
+              >
                 <Package2 className="h-6 w-6" />
                 <span className="sr-only">Acme Inc</span>
               </Link>
@@ -58,14 +61,21 @@ const RootLayout = ({
             </div>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="shrink-0 md:hidden">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="shrink-0 md:hidden"
+                >
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
                 <nav className="grid gap-6 text-lg font-medium">
-                  <Link href="#" className="flex items-center gap-2 text-lg font-semibold">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-2 text-lg font-semibold"
+                  >
                     <Package2 className="h-6 w-6" />
                     <span className="sr-only">Acme Inc</span>
                   </Link>
@@ -87,7 +97,11 @@ const RootLayout = ({
             <div className="relative ml-auto">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="secondary" size="icon" className="rounded-full">
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    className="rounded-full"
+                  >
                     <CircleUser className="h-5 w-5" />
                     <span className="sr-only">Toggle user menu</span>
                   </Button>

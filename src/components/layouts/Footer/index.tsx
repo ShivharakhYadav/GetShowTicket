@@ -1,4 +1,8 @@
-import { InstagramLogoIcon, LinkedInLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import {
+  InstagramLogoIcon,
+  LinkedInLogoIcon,
+  TwitterLogoIcon,
+} from "@radix-ui/react-icons";
 import Link from "next/link";
 
 const Footer = () => {
@@ -34,7 +38,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="pb-2">
-        <p className="text-center">@2024 All rights reserved by Get Show Tickets.</p>
+        <p className="text-center">
+          @2024 All rights reserved by Get Show Tickets.
+        </p>
       </div>
     </footer>
   );
