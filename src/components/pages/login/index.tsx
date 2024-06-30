@@ -1,18 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
-import { useLoginForm } from "./hooks";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
+import { useLoginForm } from "./hooks";
 
 const Login = () => {
   const { form, onSubmit } = useLoginForm();
@@ -39,11 +36,7 @@ const Login = () => {
                       return (
                         <FormItem>
                           <FormControl>
-                            <Input
-                              placeholder="Email"
-                              type="email"
-                              {...field}
-                            />
+                            <Input placeholder="Email" type="email" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -68,11 +61,7 @@ const Login = () => {
                       return (
                         <FormItem>
                           <FormControl>
-                            <Input
-                              placeholder="Password"
-                              type="password"
-                              {...field}
-                            />
+                            <Input placeholder="Password" type="password" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

@@ -15,13 +15,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const response = await axios.post<LoginResponse>(
-            "http://localhost:4100/login",
-            {
-              email: credentials?.email,
-              password: credentials?.password,
-            },
-          );
+          const response = await axios.post<LoginResponse>("http://localhost:4100/login", {
+            email: credentials?.email,
+            password: credentials?.password,
+          });
           const user = response.data;
           if (user && user.success) {
             return user.data;
