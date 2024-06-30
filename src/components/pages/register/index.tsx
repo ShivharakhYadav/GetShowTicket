@@ -1,17 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
-import { useSignupForm } from "./hooks";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
+import { useSignupForm } from "./hooks";
 
 const SignUpForm = () => {
   const { form, onSubmit } = useSignupForm();
@@ -23,7 +20,7 @@ const SignUpForm = () => {
           <div className="grid gap-2 text-center">
             <h1 className="text-3xl font-bold">Sign Up</h1>
             <p className="whitespace-nowrap text-muted-foreground">
-            Enter your information to create an account
+              Enter your information to create an account
             </p>
           </div>
           <Form {...form}>
@@ -39,10 +36,7 @@ const SignUpForm = () => {
                         return (
                           <FormItem>
                             <FormControl>
-                              <Input
-                                placeholder="First Name"
-                                {...field}
-                              />
+                              <Input placeholder="First Name" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -59,10 +53,7 @@ const SignUpForm = () => {
                         return (
                           <FormItem>
                             <FormControl>
-                              <Input
-                                placeholder="Last Name"
-                                {...field}
-                              />
+                              <Input placeholder="Last Name" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -80,11 +71,7 @@ const SignUpForm = () => {
                       return (
                         <FormItem>
                           <FormControl>
-                            <Input
-                              placeholder="Email"
-                              type="email"
-                              {...field}
-                            />
+                            <Input placeholder="Email" type="email" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -101,11 +88,7 @@ const SignUpForm = () => {
                       return (
                         <FormItem>
                           <FormControl>
-                            <Input
-                              placeholder="Password"
-                              type="password"
-                              {...field}
-                            />
+                            <Input placeholder="Password" type="password" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -114,15 +97,15 @@ const SignUpForm = () => {
                   />
                 </div>
                 <Button type="submit" className="w-full">
-            Create an account
+                  Create an account
                 </Button>
               </div>
             </form>
           </Form>
           <div className="mt-4 text-center text-sm">
-          Already have an account?{" "}
+            Already have an account?{" "}
             <Link href="/login" className="underline">
-            Sign in
+              Sign in
             </Link>
           </div>
         </div>

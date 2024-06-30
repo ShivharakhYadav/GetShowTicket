@@ -4,8 +4,9 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { LoginFormSchema } from "./consts";
 import { toast } from "@/components/ui/use-toast";
+
+import { LoginFormSchema } from "./consts";
 
 export const useLoginForm = () => {
   const form = useForm<z.infer<typeof LoginFormSchema>>({
@@ -16,7 +17,7 @@ export const useLoginForm = () => {
     },
   });
 
-  const onSubmit = useCallback(async(data: z.infer<typeof LoginFormSchema>) => {
+  const onSubmit = useCallback(async (data: z.infer<typeof LoginFormSchema>) => {
     try {
       const res = await signIn("credentials", {
         email: data.email,
