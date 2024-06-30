@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.react-datepicker__tab-loop {
+  margin-top: 0px !important;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

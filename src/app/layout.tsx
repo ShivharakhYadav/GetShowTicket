@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { CircleUser, Menu, Package2 } from "lucide-react";
 import "./globals.css";
 import { usePathname } from "next/navigation";
+// import { Metadata } from "next";
 
 import { Toaster } from "@/components/ui/toaster";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -19,8 +20,27 @@ import {
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/layouts/Footer";
 import AuthLayout from "@/components/layouts/AuthLayout";
+// import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"] });
+
+// const metadata: Metadata = {
+//   metadataBase: new URL(siteConfig.url),
+//   title: {
+//     default: siteConfig.name,
+//     template: `%s - ${siteConfig.name}`,
+//   },
+//   description: siteConfig.description,
+//   keywords: ["nextjs", "react", "react server components"],
+//   openGraph: {
+//     type: "website",
+//     locale: "en_US",
+//     url: siteConfig.url,
+//     title: siteConfig.name,
+//     description: siteConfig.description,
+//     siteName: siteConfig.name,
+//   },
+// };
 
 const RootLayout = ({
   children,
