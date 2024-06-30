@@ -40,15 +40,24 @@ export const useSeatBooking = () => {
   ]);
 
   const [reservedSeats, setReservedSeats] = useState<string[]>([]);
-  const [selectedSeats, setSelectedSeats] = useState<string[]>(["A4", "A5", "B2", "B3"]);
+  const [selectedSeats, setSelectedSeats] = useState<string[]>([
+    "A4",
+    "A5",
+    "B2",
+    "B3",
+  ]);
 
   const handleSeatClick = (seat: string) => {
     if (reservedSeats.includes(seat)) {
       setAvailableSeats([...availableSeats, seat]);
-      setReservedSeats(reservedSeats.filter((reservedSeat) => reservedSeat !== seat));
+      setReservedSeats(
+        reservedSeats.filter((reservedSeat) => reservedSeat !== seat),
+      );
     } else {
       setReservedSeats([...reservedSeats, seat]);
-      setAvailableSeats(availableSeats.filter((availableSeat) => availableSeat !== seat));
+      setAvailableSeats(
+        availableSeats.filter((availableSeat) => availableSeat !== seat),
+      );
     }
   };
 

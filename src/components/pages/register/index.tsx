@@ -4,7 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -71,7 +77,11 @@ const SignUpForm = () => {
                       return (
                         <FormItem>
                           <FormControl>
-                            <Input placeholder="Email" type="email" {...field} />
+                            <Input
+                              placeholder="Email"
+                              type="email"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -88,7 +98,11 @@ const SignUpForm = () => {
                       return (
                         <FormItem>
                           <FormControl>
-                            <Input placeholder="Password" type="password" {...field} />
+                            <Input
+                              placeholder="Password"
+                              type="password"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

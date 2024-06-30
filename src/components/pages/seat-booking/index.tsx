@@ -32,7 +32,9 @@ const SeatBooking: FC = () => {
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <Card className="mx-auto w-full max-w-4xl">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold md:text-2xl">Seat Reservation</CardTitle>
+          <CardTitle className="text-lg font-semibold md:text-2xl">
+            Seat Reservation
+          </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
           <div className="flex items-center justify-center">
@@ -44,7 +46,11 @@ const SeatBooking: FC = () => {
                       <Button
                         type="button"
                         disabled={selectedSeats.includes(row)}
-                        onClick={isSeatAvailable(row) ? () => handleSeatClick(row) : undefined}
+                        onClick={
+                          isSeatAvailable(row)
+                            ? () => handleSeatClick(row)
+                            : undefined
+                        }
                         className={`${
                           selectedSeats.includes(row)
                             ? "bg-red-500 text-white"
