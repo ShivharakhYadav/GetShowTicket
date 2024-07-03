@@ -82,3 +82,18 @@
 .react-datepicker-wrapper {
   width: 100%;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  text-align: left;
+  border: 1px solid #dddddd;
+  margin: 10px; /* Margin around each cell */
+  padding: 5px; /* Padding inside each cell */
+}
+tr {
+  margin-bottom: 10px; /* Margin below each row */
+}

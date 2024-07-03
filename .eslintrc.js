@@ -7,7 +7,7 @@ module.exports = {
     "unused-imports",
     "react",
     "react-hooks",
-    "prettier",
+    // "prettier",
   ],
   extends: [
     "eslint:recommended",
@@ -19,7 +19,7 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier", // Make sure this is the last item
+    // "prettier", // Make sure this is the last item //UnComment this for Enable Prettier
   ],
   rules: {
     "no-unused-vars": "off",
@@ -29,7 +29,7 @@ module.exports = {
     "@typescript-eslint/no-inferrable-types": "off",
     complexity: "warn",
     // "no-console": ["error"],
-    "prettier/prettier": "warn",
+    // "prettier/prettier": "warn",
     quotes: ["error", "double"],
     semi: ["error", "always"],
     "prefer-arrow-callback": "error", // Enforces arrow functions for callbacks
