@@ -4,7 +4,7 @@ import React, { FC, useEffect, useState } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Table, TableCell, TableHead, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
 
@@ -39,7 +39,7 @@ const SeatBooking: FC = () => {
         <CardContent className="flex flex-col gap-4">
           <div className="flex items-center justify-center">
             <Table className="w-full">
-              <TableHead>
+              <TableBody>
                 <TableRow>
                   {allSeats.map((row) => (
                     <TableCell key={row}>
@@ -64,7 +64,7 @@ const SeatBooking: FC = () => {
                     </TableCell>
                   ))}
                 </TableRow>
-              </TableHead>
+              </TableBody>
             </Table>
           </div>
           <Button

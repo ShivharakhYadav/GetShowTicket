@@ -10,3 +10,7 @@ export type LoginResponse = {
   data: CustomUser;
   success: boolean;
 };
+
+export type Children = Readonly<{
+  children: React.ReactNode;
+}>;
