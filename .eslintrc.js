@@ -1,7 +1,14 @@
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "import", "unused-imports", "react", "react-hooks", "prettier"],
+  plugins: [
+    "@typescript-eslint",
+    "import",
+    "unused-imports",
+    "react",
+    "react-hooks",
+    "prettier",
+  ],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -60,7 +67,12 @@ module.exports = {
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",
-      { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
     ],
     "sort-imports": [
       "error",

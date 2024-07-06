@@ -1,16 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { usePathname } from "next/navigation";
 
 const ThemeToggle = dynamic(() =>
   import("@/components/theme/theme-toggle").then((mod) => mod.ThemeToggle),
 );
 
-import { useEffect, useState } from "react";
-
 import { menuItems } from "./consts";
+
 const Nav = () => {
   const pathname = usePathname();
   const isAuthRoute = ["/login", "/register"].includes(pathname);
