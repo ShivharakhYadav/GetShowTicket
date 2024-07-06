@@ -4,23 +4,17 @@ import React, { FC, useEffect, useState } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
 import SeatRow from "./SeatRow";
 
 const SeatBooking: FC = () => {
   const {
-    isSeatAvailable,
-    handleSeatClick,
-    selectedSeats,
-    reservedSeats,
+    // isSeatAvailable,
+    // handleSeatClick,
+    // selectedSeats,
+    // reservedSeats,
     handleReservationSubmit,
     allSeats,
   } = useSeatBooking();
@@ -48,7 +42,7 @@ const SeatBooking: FC = () => {
             <Table className="w-full">
               <TableBody>
                 {allSeats?.map((item) => {
-                  return <SeatRow key={item.name} list={item.SeatDetails} />;
+                  return <SeatRow key={item.name} details={item} />;
                 })}
               </TableBody>
             </Table>
@@ -57,7 +51,7 @@ const SeatBooking: FC = () => {
             type="button"
             className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
             onClick={handleReservationSubmit}
-            disabled={!reservedSeats.length}
+            // disabled={!reservedSeats.length}
           >
             Confirm Booking
           </Button>

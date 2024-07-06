@@ -83,17 +83,23 @@
   width: 100%;
 }
 
-table {
+/* table {
   border-collapse: collapse;
   width: 100%;
-}
+} */
 th,
 td {
-  text-align: left;
-  border: 1px solid #dddddd;
-  margin: 10px; /* Margin around each cell */
-  padding: 5px; /* Padding inside each cell */
+  text-align: center;
+  /* border: 1px solid #dddddd; */
+  /* margin: 10px;
+  padding: 5px; */
 }
+
 tr {
-  margin-bottom: 10px; /* Margin below each row */
+  margin-bottom: 10px;
+}
+
+.available {
+  background: rgb(34 197 94 / 1);
+  color: white;
 }
