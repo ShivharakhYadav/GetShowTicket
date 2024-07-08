@@ -8,8 +8,8 @@ type propType = {
 };
 
 const SeatRow: React.FC<propType> = ({ details }) => {
-  const { SeatDetails, name, price, row, showName } = details;
-  console.log(SeatDetails);
+  const { SeatDetails, name, price } = details;
+  console.log("details", details);
   return (
     <>
       <TableRow>
@@ -17,40 +17,66 @@ const SeatRow: React.FC<propType> = ({ details }) => {
           <div>{`${name} ${price}`}</div>
         </TableCell>
       </TableRow>
-      <TableRow>
-        <TableCell>{details?.row}</TableCell>
-        <TableCell>
-          {details?.SeatDetails?.map((item) => {
-            const classes = cn({
-              available: item.status === "Available",
-              booked: item.status === "Booked",
-              reserved: item.status === "Reserved",
-            });
-
-            if (item?.isSeat) {
-              return (
+      <>
+        {details?.SeatDetails?.map((parent) => {
+          return (
+            <TableRow key={"test"}>
+              <TableCell>
                 <div
-                  key={item?.seatName}
-                  className={classes}
-                  style={{ float: "left", margin: 4, width: 25, height: 25 }}
+                  style={{
+                    float: "left",
+                    margin: 4,
+                    width: 25,
+                    height: 25,
+                  }}
                 >
-                  {item.seatID}
+                  TableRow
                 </div>
-              );
-            } else {
-              return (
-                <div
-                  key={item?.seatName}
-                  className={classes}
-                  style={{ float: "left", margin: 4, width: 25, height: 25 }}
-                >
-                  &nbsp;
-                </div>
-              );
-            }
-          })}
-        </TableCell>
-      </TableRow>
+              </TableCell>
+              <TableCell>
+                {parent?.map((item) => {
+                  const classes = cn({
+                    available: item.status === "Available",
+                    booked: item.status === "Booked",
+                    reserved: item.status === "Reserved",
+                  });
+                  if (item?.isSeat) {
+                    return (
+                      <div
+                        key={item?.seatName}
+                        className={classes}
+                        style={{
+                          float: "left",
+                          margin: 4,
+                          width: 25,
+                          height: 25,
+                        }}
+                      >
+                        {item.seatID}
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        key={item?.seatName}
+                        className={classes}
+                        style={{
+                          float: "left",
+                          margin: 4,
+                          width: 25,
+                          height: 25,
+                        }}
+                      >
+                        &nbsp;
+                      </div>
+                    );
+                  }
+                })}
+              </TableCell>
+            </TableRow>
+          );
+        })}
+      </>
     </>
   );
 };

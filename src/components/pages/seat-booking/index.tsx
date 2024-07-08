@@ -8,6 +8,7 @@ import { Table, TableBody } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
 import SeatRow from "./SeatRow";
+import Home from "./Test";
 
 const SeatBooking: FC = () => {
   const {
@@ -15,7 +16,7 @@ const SeatBooking: FC = () => {
     // handleSeatClick,
     // selectedSeats,
     // reservedSeats,
-    handleReservationSubmit,
+    // handleReservationSubmit,
     allSeats,
   } = useSeatBooking();
 
@@ -28,10 +29,10 @@ const SeatBooking: FC = () => {
   if (!mounted) {
     return null;
   }
-
+  console.log("all", allSeats);
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-      <Card className="mx-auto w-full max-w-4xl">
+      <Card className="mx-auto w-full">
         <CardHeader>
           <CardTitle className="text-lg font-semibold md:text-2xl">
             Seat Reservation
@@ -50,13 +51,14 @@ const SeatBooking: FC = () => {
           <Button
             type="button"
             className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
-            onClick={handleReservationSubmit}
+            // onClick={handleReservationSubmit}
             // disabled={!reservedSeats.length}
           >
             Confirm Booking
           </Button>
         </CardContent>
       </Card>
+      <Home />
     </main>
   );
 };
