@@ -21,19 +21,19 @@ const SeatRow: React.FC<propType> = ({ details }) => {
         {details?.SeatDetails?.map((parent) => {
           return (
             <TableRow key={"test"}>
-              <TableCell>
-                <div
+              <TableCell style={{ position: "relative" }}>
+                {/* <div
                   style={{
                     float: "left",
                     margin: 4,
                     width: 25,
                     height: 25,
                   }}
-                >
-                  TableRow
-                </div>
+                > */}
+                TableRow
+                {/* </div> */}
               </TableCell>
-              <TableCell>
+              <>
                 {parent?.map((item) => {
                   const classes = cn({
                     available: item.status === "Available",
@@ -42,37 +42,39 @@ const SeatRow: React.FC<propType> = ({ details }) => {
                   });
                   if (item?.isSeat) {
                     return (
-                      <div
-                        key={item?.seatName}
-                        className={classes}
-                        style={{
-                          float: "left",
-                          margin: 4,
-                          width: 25,
-                          height: 25,
-                        }}
-                      >
-                        {item.seatID}
-                      </div>
+                      // <div
+                      //   key={item?.seatName}
+                      //   className={classes}
+                      //   style={{
+                      //     float: "left",
+                      //     margin: 4,
+                      //     width: 25,
+                      //     height: 25,
+                      //   }}
+                      // >
+                      //   {item.seatID}
+                      // </div>
+                      <TableCell key={"s"}>{item.seatID}</TableCell>
                     );
                   } else {
                     return (
-                      <div
-                        key={item?.seatName}
-                        className={classes}
-                        style={{
-                          float: "left",
-                          margin: 4,
-                          width: 25,
-                          height: 25,
-                        }}
-                      >
-                        &nbsp;
-                      </div>
+                      // <div
+                      //   key={item?.seatName}
+                      //   className={classes}
+                      //   style={{
+                      //     float: "left",
+                      //     margin: 4,
+                      //     width: 25,
+                      //     height: 25,
+                      //   }}
+                      // >
+                      //   &nbsp;
+                      // </div>
+                      <TableCell key={"s"}>{item.seatID}</TableCell>
                     );
                   }
                 })}
-              </TableCell>
+              </>
             </TableRow>
           );
         })}
