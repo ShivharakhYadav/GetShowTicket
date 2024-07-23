@@ -93,10 +93,11 @@ td {
   /* border: 1px solid #dddddd; */
   /* margin: 10px;
   padding: 5px; */
+  width: 100px;
 }
 
 tr {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .available {

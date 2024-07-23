@@ -8,73 +8,23 @@ type propType = {
 };
 
 const SeatRow: React.FC<propType> = ({ details }) => {
-  const { SeatDetails, name, price } = details;
-  console.log("details", details);
+  const { name, price, seatRows } = details;
   return (
     <>
       <TableRow>
-        <TableCell>
-          <div>{`${name} ${price}`}</div>
-        </TableCell>
+        <TableCell>{`${name} ${price}`}</TableCell>
       </TableRow>
       <>
-        {details?.SeatDetails?.map((parent) => {
+        {Object.entries(seatRows)?.map(([key, value], i) => {
+          const date = new Date().getTime();
           return (
-            <TableRow key={"test"}>
-              <TableCell style={{ position: "relative" }}>
-                {/* <div
-                  style={{
-                    float: "left",
-                    margin: 4,
-                    width: 25,
-                    height: 25,
-                  }}
-                > */}
-                TableRow
-                {/* </div> */}
-              </TableCell>
-              <>
-                {parent?.map((item) => {
-                  const classes = cn({
-                    available: item.status === "Available",
-                    booked: item.status === "Booked",
-                    reserved: item.status === "Reserved",
-                  });
-                  if (item?.isSeat) {
-                    return (
-                      // <div
-                      //   key={item?.seatName}
-                      //   className={classes}
-                      //   style={{
-                      //     float: "left",
-                      //     margin: 4,
-                      //     width: 25,
-                      //     height: 25,
-                      //   }}
-                      // >
-                      //   {item.seatID}
-                      // </div>
-                      <TableCell key={"s"}>{item.seatID}</TableCell>
-                    );
-                  } else {
-                    return (
-                      // <div
-                      //   key={item?.seatName}
-                      //   className={classes}
-                      //   style={{
-                      //     float: "left",
-                      //     margin: 4,
-                      //     width: 25,
-                      //     height: 25,
-                      //   }}
-                      // >
-                      //   &nbsp;
-                      // </div>
-                      <TableCell key={"s"}>{item.seatID}</TableCell>
-                    );
-                  }
-                })}
-              </>
+            <TableRow key={`${key}-${i}-${date}`}>
+              <TableCell>{key}</TableCell>
+              {value?.map((item, i) => (
+                <TableCell key={`${item.name}-${i}`}>
+                  <div>{item.name}</div>
+                </TableCell>
+              ))}
             </TableRow>
           );
         })}
@@ -84,3 +34,19 @@ const SeatRow: React.FC<propType> = ({ details }) => {
 };
 
 export default SeatRow;
+{
+  /* <>
+  {parent?.map((item: any) => {
+    const classes = cn({
+      available: item.status === "Available",
+      booked: item.status === "Booked",
+      reserved: item.status === "Reserved",
+    });
+    if (item?.isSeat) {
+      return <TableCell key={"s"}>{item.seatID}</TableCell>;
+    } else {
+      return <TableCell key={"s"}>{item.seatID}</TableCell>;
+    }
+  })}
+</>; */
+}
