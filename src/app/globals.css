@@ -147,14 +147,14 @@
 }
 
 .seat-layout tbody button {
-  padding: 0px;
+  /* padding: 0px; */
   height: 25px;
   width: 25px;
   margin: 5px 4px;
-  /* border: 1px solid black; */
 }
 
-.seat-layout tbody tr {
+.seat-layout tbody tr:hover {
+  background-color: unset;
 }
 
 .seat-layout tbody tr:where(.price-name) {

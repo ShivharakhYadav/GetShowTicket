@@ -2,24 +2,14 @@
 
 import React, { FC, useEffect, useState } from "react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
-import SeatRow from "./SeatRow";
-import Home from "./Test";
 
 const SeatBooking: FC = () => {
-  const {
-    isSeatAvailable,
-    handleSeatClick,
-    selectedSeats,
-    reservedSeats,
-    handleReservationSubmit,
-    allSeats,
-    ApiResponse,
-  } = useSeatBooking();
+  const { ApiResponse } = useSeatBooking();
 
   const [mounted, setMounted] = useState(false);
 
@@ -30,20 +20,20 @@ const SeatBooking: FC = () => {
   if (!mounted) {
     return null;
   }
-  console.log("all", allSeats);
+
+  const handleSeatClick = (seatId: string) => {
+    console.log("Selected seat:", seatId);
+    // Implement seat selection logic here
+  };
+
   return (
     <main className="flex flex-1 flex-col gap-4 px-4 lg:gap-6 lg:px-4">
       <Card className="mx-auto w-full border-0">
-        {/* <CardHeader>
-          <CardTitle className="text-lg font-semibold md:text-2xl">
-            Seat Reservation
-          </CardTitle>
-        </CardHeader> */}
         <CardContent className="flex flex-col gap-4">
           <div className="flex items-center justify-center">
             <Table className="seat-layout mt-0 w-full">
               <TableBody>
-                {ApiResponse?.map(({ name, price, seatRows }) => {
+                {/* {ApiResponse?.map(({ name, price, seatRows }) => {
                   return (
                     <>
                       <TableRow
@@ -58,32 +48,65 @@ const SeatBooking: FC = () => {
                         {Object.entries(seatRows)?.map(([key, value], i) => {
                           const date = new Date().getTime();
                           return (
-                            <TableRow key={`${key}-${i}-${date}`}>
-                              <TableCell className="p-1 pr-2">{key}</TableCell>
-                              {(value as any)?.map((item: any, i: number) => (
-                                <>
-                                  {item?.isSeat ? (
-                                    <TableCell
-                                      key={`${item.name}-${i}`}
-                                      className="p-0"
-                                    >
+                            <TableRow
+                              key={`${key}-${i}-${date}`}
+                              className="text-nowrap"
+                            >
+                              <TableCell className="fixed relative z-10 p-1">
+                                {key}
+                              </TableCell>
+                              <TableCell className="p-1">
+                                {(value as any)?.map((item: any, i: number) => (
+                                  <>
+                                    {item?.isSeat ? (
                                       <Button>{item.name}</Button>
-                                    </TableCell>
-                                  ) : (
-                                    <TableCell
-                                      key={`${item.name}-${i}`}
-                                      className="p-0"
-                                    ></TableCell>
-                                  )}
-                                </>
-                              ))}
+                                    ) : (
+                                      <Button
+                                        disabled
+                                        className="space bg-transparent"
+                                      ></Button>
+                                    )}
+                                  </>
+                                ))}
+                              </TableCell>
                             </TableRow>
                           );
                         })}
                       </>
                     </>
                   );
-                })}
+                })} */}
+                {ApiResponse?.map(({ name, price, seatRows }) => (
+                  <React.Fragment key={`price-name-${name}-${price}`}>
+                    <TableRow className="price-name">
+                      <TableCell colSpan={3} className="p-1">
+                        <h6>{`${name} - $${price}`}</h6>
+                      </TableCell>
+                    </TableRow>
+                    {Object.entries(seatRows).map(([rowId, seats]) => (
+                      <TableRow key={`row-${rowId}`} className="text-nowrap">
+                        {/**
+                         * This will print row name like A, B, C, D, E, F
+                         */}
+                        <TableCell>{rowId}</TableCell>
+                        <TableCell className="p-1">
+                          {seats.map((seat: any) => (
+                            <Button
+                              key={seat.id}
+                              onClick={() =>
+                                seat.isSeat && handleSeatClick(seat.id)
+                              }
+                              disabled={!seat.isSeat}
+                              className={`seat-button ${!seat.isSeat ? "bg-transparent" : ""}`}
+                            >
+                              {seat.name}
+                            </Button>
+                          ))}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </React.Fragment>
+                ))}
               </TableBody>
             </Table>
           </div>
