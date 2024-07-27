@@ -80,19 +80,18 @@ const SeatBooking: FC = () => {
                   <React.Fragment key={`price-name-${name}-${price}`}>
                     <TableRow className="price-name">
                       <TableCell colSpan={3} className="p-1">
-                        <h6>{`${name} - $${price}`}</h6>
+                        <h6>{`${name} - ${price}`}</h6>
                       </TableCell>
                     </TableRow>
                     {Object.entries(seatRows).map(([rowId, seats]) => (
                       <TableRow key={`row-${rowId}`} className="text-nowrap">
-                        {/**
-                         * This will print row name like A, B, C, D, E, F
-                         */}
-                        <TableCell>{rowId}</TableCell>
+                        <TableCell className="sticky-row-key bg-background">
+                          {rowId}
+                        </TableCell>
                         <TableCell className="p-1">
-                          {seats.map((seat: any) => (
+                          {seats.map((seat: any, i: number) => (
                             <Button
-                              key={seat.id}
+                              key={`${seat.id}-${i}`}
                               onClick={() =>
                                 seat.isSeat && handleSeatClick(seat.id)
                               }
