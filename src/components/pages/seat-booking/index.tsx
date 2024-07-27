@@ -12,12 +12,13 @@ import Home from "./Test";
 
 const SeatBooking: FC = () => {
   const {
-    // isSeatAvailable,
-    // handleSeatClick,
-    // selectedSeats,
-    // reservedSeats,
-    // handleReservationSubmit,
+    isSeatAvailable,
+    handleSeatClick,
+    selectedSeats,
+    reservedSeats,
+    handleReservationSubmit,
     allSeats,
+    ApiResponse,
   } = useSeatBooking();
 
   const [mounted, setMounted] = useState(false);
@@ -31,55 +32,71 @@ const SeatBooking: FC = () => {
   }
   console.log("all", allSeats);
   return (
-    <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-      <Card className="mx-auto w-full">
-        <CardHeader>
+    <main className="flex flex-1 flex-col gap-4 px-4 lg:gap-6 lg:px-4">
+      <Card className="mx-auto w-full border-0">
+        {/* <CardHeader>
           <CardTitle className="text-lg font-semibold md:text-2xl">
             Seat Reservation
           </CardTitle>
-        </CardHeader>
+        </CardHeader> */}
         <CardContent className="flex flex-col gap-4">
           <div className="flex items-center justify-center">
-            <Table className="w-full">
+            <Table className="seat-layout mt-0 w-full">
               <TableBody>
-                <TableRow>
-                  {allSeats.map((row) => (
-                    <TableCell key={row}>
-                      <Button
-                        type="button"
-                        disabled={selectedSeats.includes(row)}
-                        onClick={
-                          isSeatAvailable(row)
-                            ? () => handleSeatClick(row)
-                            : undefined
-                        }
-                        className={`${
-                          selectedSeats.includes(row)
-                            ? "bg-red-500 text-white"
-                            : reservedSeats.includes(row)
-                              ? "bg-yellow-500 text-white"
-                              : "cursor-pointer bg-green-500 text-white"
-                        } w-full`}
+                {ApiResponse?.map(({ name, price, seatRows }) => {
+                  return (
+                    <>
+                      <TableRow
+                        className="price-name"
+                        key={`price-name-${name}-${price}`}
                       >
-                        {row}
-                      </Button>
-                    </TableCell>
-                  ))}
-                </TableRow>
+                        <TableCell colSpan={3} className="p-1">
+                          <h6>{`${name} ${price}`}</h6>
+                        </TableCell>
+                      </TableRow>
+                      <>
+                        {Object.entries(seatRows)?.map(([key, value], i) => {
+                          const date = new Date().getTime();
+                          return (
+                            <TableRow key={`${key}-${i}-${date}`}>
+                              <TableCell className="p-1 pr-2">{key}</TableCell>
+                              {(value as any)?.map((item: any, i: number) => (
+                                <>
+                                  {item?.isSeat ? (
+                                    <TableCell
+                                      key={`${item.name}-${i}`}
+                                      className="p-0"
+                                    >
+                                      <Button>{item.name}</Button>
+                                    </TableCell>
+                                  ) : (
+                                    <TableCell
+                                      key={`${item.name}-${i}`}
+                                      className="p-0"
+                                    ></TableCell>
+                                  )}
+                                </>
+                              ))}
+                            </TableRow>
+                          );
+                        })}
+                      </>
+                    </>
+                  );
+                })}
               </TableBody>
             </Table>
           </div>
-          <Button
+          {/* <Button
             type="button"
             className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
             // onClick={handleReservationSubmit}
             // disabled={!reservedSeats.length}
           >
             Confirm Booking
-          </Button>
+          </Button> */}
         </CardContent>
       </Card>
-      <Home />
     </main>
   );
 };

@@ -1,10 +1,12 @@
-import { TableCell, TableRow } from "@/components/ui/table";
-import { cn } from "@/lib/utils";
+import clsx from "clsx";
 
-import { SeatRecord } from "./hooks";
+import { Button } from "@/components/ui/button";
+import { TableCell, TableRow } from "@/components/ui/table";
+
+// import { SeatRecord } from "./hooks";
 
 type propType = {
-  details: SeatRecord;
+  details: any;
 };
 
 const SeatRow: React.FC<propType> = ({ details }) => {
@@ -12,7 +14,9 @@ const SeatRow: React.FC<propType> = ({ details }) => {
   return (
     <>
       <TableRow>
-        <TableCell>{`${name} ${price}`}</TableCell>
+        <TableCell colSpan={3}>
+          <h6>{`${name} ${price}`}</h6>
+        </TableCell>
       </TableRow>
       <>
         {Object.entries(seatRows)?.map(([key, value], i) => {
@@ -20,9 +24,9 @@ const SeatRow: React.FC<propType> = ({ details }) => {
           return (
             <TableRow key={`${key}-${i}-${date}`}>
               <TableCell>{key}</TableCell>
-              {value?.map((item, i) => (
+              {(value as any)?.map((item: any, i: number) => (
                 <TableCell key={`${item.name}-${i}`}>
-                  <div>{item.name}</div>
+                  <Button>{item.name}</Button>
                 </TableCell>
               ))}
             </TableRow>

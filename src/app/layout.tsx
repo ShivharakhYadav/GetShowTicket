@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Inter as FontSans } from "next/font/google";
+
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -35,7 +36,7 @@ const RootLayout: FC<Children> = ({ children }) => {
         >
           <Nav />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>
