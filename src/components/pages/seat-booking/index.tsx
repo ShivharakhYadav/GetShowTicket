@@ -4,7 +4,7 @@ import React, { FC, useEffect, useState } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
 import SeatRow from "./SeatRow";
@@ -42,9 +42,30 @@ const SeatBooking: FC = () => {
           <div className="flex items-center justify-center">
             <Table className="w-full">
               <TableBody>
-                {allSeats?.map((item) => {
-                  return <SeatRow key={item.name} details={item} />;
-                })}
+                <TableRow>
+                  {allSeats.map((row) => (
+                    <TableCell key={row}>
+                      <Button
+                        type="button"
+                        disabled={selectedSeats.includes(row)}
+                        onClick={
+                          isSeatAvailable(row)
+                            ? () => handleSeatClick(row)
+                            : undefined
+                        }
+                        className={`${
+                          selectedSeats.includes(row)
+                            ? "bg-red-500 text-white"
+                            : reservedSeats.includes(row)
+                              ? "bg-yellow-500 text-white"
+                              : "cursor-pointer bg-green-500 text-white"
+                        } w-full`}
+                      >
+                        {row}
+                      </Button>
+                    </TableCell>
+                  ))}
+                </TableRow>
               </TableBody>
             </Table>
           </div>

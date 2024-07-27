@@ -7,7 +7,7 @@ module.exports = {
     "unused-imports",
     "react",
     "react-hooks",
-    // "prettier",
+    "prettier",
   ],
   extends: [
     "eslint:recommended",
