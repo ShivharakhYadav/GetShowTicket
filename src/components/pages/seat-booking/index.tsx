@@ -8,6 +8,12 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
 
+interface Seat {
+  id: string | null;
+  name: string | number | null;
+  isSeat: boolean;
+}
+
 const SeatBooking: FC = () => {
   const { ApiResponse } = useSeatBooking();
 
@@ -46,11 +52,13 @@ const SeatBooking: FC = () => {
                           {rowId}
                         </TableCell>
                         <TableCell className="p-1">
-                          {seats.map((seat: any, i: number) => (
+                          {seats.map((seat: Seat, i: number) => (
                             <Button
                               key={`${seat.id}-${i}`}
                               onClick={() =>
-                                seat.isSeat && handleSeatClick(seat.id)
+                                seat.isSeat &&
+                                seat.id &&
+                                handleSeatClick(seat.id)
                               }
                               disabled={!seat.isSeat}
                               className="mx-1 my-1 h-6 w-6 max-[640px]:h-6 max-[640px]:w-2 max-[640px]:px-3"

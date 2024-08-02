@@ -1,10 +1,10 @@
-import { FC } from "react";
 import { Inter as FontSans } from "next/font/google";
+import { FC } from "react";
 
-import "./globals.css";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import Footer from "@/components/global/Footer";
+import { cn } from "@/lib/utils";
+import "./globals.css";
+// import Footer from "@/components/global/Footer";
 import Nav from "@/components/global/Nav";
 import { Children } from "@/types";
 
