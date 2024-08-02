@@ -27,55 +27,12 @@ const SeatBooking: FC = () => {
   };
 
   return (
-    <main className="flex flex-1 flex-col gap-4 px-4 lg:gap-6 lg:px-4">
+    <main className="flex flex-1 flex-col gap-4 px-4 max-[640px]:p-1 lg:gap-6 lg:px-4">
       <Card className="mx-auto w-full border-0">
-        <CardContent className="flex flex-col gap-4">
+        <CardContent className="flex flex-col gap-4 max-[640px]:p-0">
           <div className="flex items-center justify-center">
             <Table className="seat-layout mt-0 w-full">
               <TableBody>
-                {/* {ApiResponse?.map(({ name, price, seatRows }) => {
-                  return (
-                    <>
-                      <TableRow
-                        className="price-name"
-                        key={`price-name-${name}-${price}`}
-                      >
-                        <TableCell colSpan={3} className="p-1">
-                          <h6>{`${name} ${price}`}</h6>
-                        </TableCell>
-                      </TableRow>
-                      <>
-                        {Object.entries(seatRows)?.map(([key, value], i) => {
-                          const date = new Date().getTime();
-                          return (
-                            <TableRow
-                              key={`${key}-${i}-${date}`}
-                              className="text-nowrap"
-                            >
-                              <TableCell className="fixed relative z-10 p-1">
-                                {key}
-                              </TableCell>
-                              <TableCell className="p-1">
-                                {(value as any)?.map((item: any, i: number) => (
-                                  <>
-                                    {item?.isSeat ? (
-                                      <Button>{item.name}</Button>
-                                    ) : (
-                                      <Button
-                                        disabled
-                                        className="space bg-transparent"
-                                      ></Button>
-                                    )}
-                                  </>
-                                ))}
-                              </TableCell>
-                            </TableRow>
-                          );
-                        })}
-                      </>
-                    </>
-                  );
-                })} */}
                 {ApiResponse?.map(({ name, price, seatRows }) => (
                   <React.Fragment key={`price-name-${name}-${price}`}>
                     <TableRow className="price-name">
@@ -85,7 +42,7 @@ const SeatBooking: FC = () => {
                     </TableRow>
                     {Object.entries(seatRows).map(([rowId, seats]) => (
                       <TableRow key={`row-${rowId}`} className="text-nowrap">
-                        <TableCell className="sticky-row-key bg-background">
+                        <TableCell className="sticky-row-key bg-background max-[640px]:p-0 max-[640px]:pl-px">
                           {rowId}
                         </TableCell>
                         <TableCell className="p-1">
@@ -96,7 +53,7 @@ const SeatBooking: FC = () => {
                                 seat.isSeat && handleSeatClick(seat.id)
                               }
                               disabled={!seat.isSeat}
-                              className={`seat-button ${!seat.isSeat ? "bg-transparent" : ""}`}
+                              className="mx-1 my-1 h-6 w-6 max-[640px]:h-6 max-[640px]:w-2 max-[640px]:px-3"
                             >
                               {seat.name}
                             </Button>

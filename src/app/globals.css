@@ -150,11 +150,11 @@
   width: 100%;
 }
 
-.seat-layout tbody button {
+/* .seat-layout tbody button {
   height: 25px;
   width: 25px;
   margin: 5px 4px;
-}
+} */
 
 .seat-layout tbody tr:hover {
   background-color: unset;
