@@ -21,7 +21,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 type formType = z.infer<typeof CreateEventSchema>;
 
-export const CreateEvent = () => {
+const CreateEvent = () => {
   const form = useForm<formType>({
     resolver: zodResolver(CreateEventSchema),
     defaultValues: {
@@ -165,3 +165,5 @@ export const CreateEvent = () => {
     </div>
   );
 };
+
+export default CreateEvent;
