@@ -1,10 +1,10 @@
-import { FC } from "react";
 import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
+import { FC } from "react";
 
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import Footer from "@/components/global/Footer";
+import { cn } from "@/lib/utils";
+import "./globals.css";
+// import Footer from "@/components/global/Footer";
 import Nav from "@/components/global/Nav";
 import { Children } from "@/types";
 
@@ -36,7 +36,7 @@ const RootLayout: FC<Children> = ({ children }) => {
         >
           <Nav />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>
