@@ -36,8 +36,11 @@ const SeatBooking: FC = () => {
     <main className="flex flex-1 flex-col gap-4 px-4 max-[640px]:p-1 lg:gap-6 lg:px-4">
       <Card className="mx-auto w-full border-0">
         <CardContent className="flex flex-col gap-4 max-[640px]:p-0">
-          <div className="flex items-center justify-center">
-            <Table className="seat-layout mt-0 w-full">
+          <div className="hide-scrollbar flex items-center justify-center">
+            <Table
+              parentClasses="hide-scrollbar"
+              className="seat-layout mt-0 w-full"
+            >
               <TableBody>
                 {ApiResponse?.map(({ name, price, seatRows }) => (
                   <React.Fragment key={`price-name-${name}-${price}`}>
@@ -61,9 +64,9 @@ const SeatBooking: FC = () => {
                                 handleSeatClick(seat.id)
                               }
                               disabled={!seat.isSeat}
-                              className="mx-1 my-1 h-6 w-6 max-[640px]:h-6 max-[640px]:w-2 max-[640px]:px-3"
+                              className="mx-0.5 my-0.5 h-6 w-3 px-3 max-[640px]:h-6 max-[640px]:w-2 max-[640px]:px-3"
                             >
-                              {seat.name}
+                              {/* {seat.name ? seat.name : <>&nbsp;</>} */}
                             </Button>
                           ))}
                         </TableCell>
