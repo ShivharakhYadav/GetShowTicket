@@ -30,7 +30,7 @@ const ShowCard: FC<Show> = ({
     <Card
       key={id}
       className="cursor-pointer"
-      onClick={() => router.push(appRoutes.showDetail(title, id))}
+      onClick={() => router.push(appRoutes.showDetail(title.toLowerCase(), id))}
     >
       <CardHeader>
         <div className="flex items-center">
