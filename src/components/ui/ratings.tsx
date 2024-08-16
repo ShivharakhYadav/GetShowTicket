@@ -111,7 +111,7 @@ const PartialStar = ({ ...props }: PartialStarProps) => {
       onClick={() => onValueChange && onValueChange()}
       className={cn("relative inline-block", asInput && "cursor-pointer")}
     >
-      {React.cloneElement(Icon, {
+      {cloneElement(Icon, {
         size,
         className: cn("fill-transparent", className),
       })}
@@ -123,7 +123,7 @@ const PartialStar = ({ ...props }: PartialStarProps) => {
           width: `${fillPercentage * 100}%`,
         }}
       >
-        {React.cloneElement(Icon, {
+        {cloneElement(Icon, {
           size,
           className: cn("fill-current", className),
         })}
