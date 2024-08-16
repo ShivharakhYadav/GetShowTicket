@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Normal",
+    "price": 140,
+    "showName": "Test",
+    "SeatDetails": [
+      { "seat": "", "isSeat": false },
+      { "seat": "A1", "isSeat": true },
+      { "seat": "A2", "isSeat": true },
+      { "seat": "", "isSeat": false },
+      { "seat": "A3", "isSeat": true },
+      { "seat": "A4", "isSeat": true },
+      { "seat": "A5", "isSeat": true },
+      { "seat": "", "isSeat": false },
+      { "seat": "", "isSeat": false },
+      { "seat": "A6", "isSeat": true },
+      { "seat": "A7", "isSeat": true },
+      { "seat": "", "isSeat": false },
+      { "seat": "A8", "isSeat": true },
+      { "seat": "A9", "isSeat": true },
+      { "seat": "", "isSeat": false },
+      { "seat": "A10", "isSeat": true },
+      { "seat": "A11", "isSeat": true },
+      { "seat": "A12", "isSeat": true }
+    ]
+  },
+  {
+    "name": "Middle",
+    "price": 200,
+    "showName": "Test1",
+    "SeatDetails": {
+      "A": [
+        { "seat": "", "isSeat": false },
+        { "seat": "A1", "isSeat": true },
+        { "seat": "A2", "isSeat": true },
+        { "seat": "", "isSeat": false },
+        { "seat": "A3", "isSeat": true },
+        { "seat": "A4", "isSeat": true },
+        { "seat": "A5", "isSeat": true },
+        { "seat": "", "isSeat": false },
+        { "seat": "", "isSeat": false },
+        { "seat": "A6", "isSeat": true },
+        { "seat": "A7", "isSeat": true },
+        { "seat": "", "isSeat": false },
+        { "seat": "A8", "isSeat": true },
+        { "seat": "A9", "isSeat": true },
+        { "seat": "", "isSeat": false },
+        { "seat": "A10", "isSeat": true },
+        { "seat": "A11", "isSeat": true },
+        { "seat": "A12", "isSeat": true }
+      ]
+    }
+  }
+]

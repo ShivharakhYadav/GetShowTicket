@@ -29,6 +29,8 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    --table-row-background: 0 0% 100%;
   }
 
   .dark {
@@ -56,6 +58,8 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    --table-row-background: 240 10% 3.9%;
   }
 }
 
@@ -129,4 +133,37 @@
   -webkit-background-clip: text;
   background-clip: text;
   animation: 2.25s linear infinite gradientAnimation;
+}
+
+.react-datepicker__tab-loop {
+  margin-top: 0px !important;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+/* .seat-layout tbody button {
+  height: 25px;
+  width: 25px;
+  margin: 5px 4px;
+} */
+
+.seat-layout tbody tr:hover {
+  background-color: unset;
+}
+
+.seat-layout tbody tr:where(.price-name) {
+  margin-bottom: 5px;
+}
+
+.seat-layout tbody tr:not(.price-name) {
+  border-bottom: unset;
+}
+
+.sticky-row-key {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 10;
 }
