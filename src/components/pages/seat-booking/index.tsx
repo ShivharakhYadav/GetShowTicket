@@ -1,10 +1,10 @@
 "use client";
 
-import React, { FC, useEffect, useState } from "react";
 import clsx from "clsx";
+import React, { FC, useEffect, useState } from "react";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 import { useSeatBooking } from "./hooks";
@@ -20,7 +20,13 @@ interface Seat {
 }
 
 const SeatBooking: FC = () => {
-  const { ApiResponse, isSelectedSeat, handleSeatClick } = useSeatBooking();
+  const {
+    ApiResponse,
+    isSelectedSeat,
+    handleSeatClick,
+    handleReservationSubmit,
+    selectedSeats,
+  } = useSeatBooking();
 
   const [mounted, setMounted] = useState(false);
 
@@ -83,6 +89,7 @@ const SeatBooking: FC = () => {
                                   handleSeatClick(seat.id)
                                 }
                                 className={btnClasses}
+                                variant={"default"}
                               >
                                 {seat.name ? seat.name : <>&nbsp;</>}
                               </Button>
@@ -96,38 +103,40 @@ const SeatBooking: FC = () => {
               </TableBody>
             </Table>
           </div>
-          <div className="flex items-center justify-center gap-1">
-            <div className="flex items-center gap-1">
-              <div className="pointer-events-none h-6 w-3 cursor-none rounded-md border-2 border-black bg-inherit px-3 font-normal text-black max-[640px]:h-6 max-[640px]:w-2 max-[640px]:px-3"></div>
-              <span>available</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="bg-booked pointer-events-none h-6 w-7 cursor-none rounded-md"></div>
-              <span>booked</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div
-                className={`${defaultClasses} details reserved relative h-6 w-7 cursor-none rounded-md`}
-              >
-                &nbsp;
-              </div>
-              <span>reserved</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="bg-available pointer-events-none h-6 w-7 cursor-none rounded-md"></div>
-              <span>selected</span>
-            </div>
+          <div className="text-center">
+            <Button
+              type="button"
+              className="mb-2 w-2/6 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
+              onClick={handleReservationSubmit}
+              disabled={!selectedSeats?.length}
+            >
+              Book
+            </Button>
           </div>
-          {/* <Button
-            type="button"
-            className="mt-4 w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
-            // onClick={handleReservationSubmit}
-            // disabled={!reservedSeats.length}
-          >
-            Confirm Booking
-          </Button> */}
         </CardContent>
       </Card>
+      <div className="fixed bottom-0 left-1/2 flex w-full -translate-x-1/2 transform items-center justify-center gap-1">
+        <div className="flex items-center gap-1">
+          <div className="pointer-events-none h-6 w-3 cursor-none rounded-md border-2 border-black bg-inherit px-3 font-normal text-black max-[640px]:h-6 max-[640px]:w-2 max-[640px]:px-3"></div>
+          <span>available</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="bg-booked pointer-events-none h-6 w-7 cursor-none rounded-md"></div>
+          <span>booked</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div
+            className={`${defaultClasses} details reserved relative h-6 w-7 cursor-none rounded-md`}
+          >
+            &nbsp;
+          </div>
+          <span>reserved</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="bg-available pointer-events-none h-6 w-7 cursor-none rounded-md"></div>
+          <span>selected</span>
+        </div>
+      </div>
     </main>
   );
 };
