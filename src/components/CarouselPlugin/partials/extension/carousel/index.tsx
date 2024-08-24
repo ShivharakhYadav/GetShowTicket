@@ -10,7 +10,7 @@ import React, {
 } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronRightIcon, ScrollText } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
@@ -139,7 +139,7 @@ const Carousel = forwardRef<
             break;
         }
       },
-      [emblaMainApi, orientation, direction, ScrollText, ScrollPrev],
+      [emblaMainApi, orientation, direction, ScrollPrev, ScrollNext],
     );
 
     const onThumbClick = useCallback(
@@ -236,7 +236,7 @@ CarouselMainContainer.displayName = "CarouselMainContainer";
 const CarouselThumbsContainer = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, dir, children, ...props }, ref) => {
+>(({ className, children, ...props }, ref) => {
   const { thumbsRef, orientation, direction } = useCarousel();
 
   return (

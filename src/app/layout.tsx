@@ -7,6 +7,7 @@ import "./globals.css";
 // import Footer from "@/components/global/Footer";
 import Nav from "@/components/global/Nav";
 import { Children } from "@/types";
+import Footer from "@/components/global/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ const RootLayout: FC<Children> = ({ children }) => {
         >
           <Nav />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
