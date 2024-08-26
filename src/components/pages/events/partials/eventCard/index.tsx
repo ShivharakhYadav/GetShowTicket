@@ -1,8 +1,8 @@
 "use client";
 
-import { FC } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { FC } from "react";
 
 import {
   Card,
