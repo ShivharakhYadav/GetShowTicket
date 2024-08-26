@@ -4,10 +4,7 @@ import { FC } from "react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-// import Footer from "@/components/global/Footer";
-import Nav from "@/components/global/Nav";
 import { Children } from "@/types";
-import Footer from "@/components/global/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,9 +32,7 @@ const RootLayout: FC<Children> = ({ children }) => {
           enableSystem
           disableTransitionOnChange
         >
-          <Nav />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
