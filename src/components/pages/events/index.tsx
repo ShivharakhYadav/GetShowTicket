@@ -1,5 +1,5 @@
 import { events } from "./mocks";
-import EventCard from "./partials/EventCard";
+import EventCard from "./partials/EventCard/index";
 
 const Events = () => {
   return (
