@@ -15,9 +15,9 @@ import {
 import Ratings from "@/components/ui/ratings";
 import appRoutes from "@/config/appRoutes";
 
-import { Show } from "../../types";
+import { Event } from "../../types";
 
-const ShowCard: FC<Show> = ({
+const EventCard: FC<Event> = ({
   title,
   year,
   description,
@@ -30,7 +30,9 @@ const ShowCard: FC<Show> = ({
     <Card
       key={id}
       className="cursor-pointer"
-      onClick={() => router.push(appRoutes.showDetail(title.toLowerCase(), id))}
+      onClick={() =>
+        router.push(appRoutes.eventDetails(title.toLowerCase(), id))
+      }
     >
       <CardHeader>
         <div className="flex items-center">
@@ -58,4 +60,4 @@ const ShowCard: FC<Show> = ({
   );
 };
 
-export default ShowCard;
+export default EventCard;

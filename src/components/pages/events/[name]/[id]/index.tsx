@@ -8,9 +8,9 @@ import BannerCard from "./partials/BannerCard";
 
 const ShowDetails = () => {
   const params = useParams();
-  const { showName, id } = params;
+  const { name, id } = params;
 
-  if (typeof showName !== "string" || typeof id !== "string") {
+  if (typeof name !== "string" || typeof id !== "string") {
     return <Custom404 />;
   }
   return (
