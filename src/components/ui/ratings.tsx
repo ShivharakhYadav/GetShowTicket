@@ -67,11 +67,11 @@ const Ratings = ({ ...props }: RatingsProps) => {
           className: cn(
             fill ? "fill-current" : "fill-transparent",
             ratingVariants[variant].star,
-            asInput ? "cursor-pointer" : "",
+            asInput ? "cursor-pointer" : ""
           ),
           role: props.asInput && "input",
           onClick: () => onValueChange && onValueChange(i + 1),
-        }),
+        })
       )}
       {partialStar}
       {[...Array(totalStars - fullStars - (partialStar ? 1 : 0))].map((_, i) =>
@@ -80,13 +80,13 @@ const Ratings = ({ ...props }: RatingsProps) => {
           size,
           className: cn(
             ratingVariants[variant].emptyStar,
-            asInput ? "cursor-pointer" : "",
+            asInput ? "cursor-pointer" : ""
           ),
           role: props.asInput && "input",
           onClick: () =>
             onValueChange &&
             onValueChange(fullStars + i + 1 + (partialStar ? 1 : 0)),
-        }),
+        })
       )}
     </div>
   );

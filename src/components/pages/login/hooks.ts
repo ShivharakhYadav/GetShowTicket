@@ -44,7 +44,7 @@ export const useLoginForm = () => {
         });
       }
     },
-    [],
+    []
   );
 
   return { onSubmit, form };
