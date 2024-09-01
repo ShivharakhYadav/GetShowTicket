@@ -750,12 +750,12 @@ export const useSeatBooking = () => {
     if (reservedSeats.includes(seat)) {
       setAvailableSeats([...availableSeats, seat]);
       setReservedSeats(
-        reservedSeats.filter((reservedSeat) => reservedSeat !== seat),
+        reservedSeats.filter((reservedSeat) => reservedSeat !== seat)
       );
     } else {
       setReservedSeats([...reservedSeats, seat]);
       setAvailableSeats(
-        availableSeats.filter((availableSeat) => availableSeat !== seat),
+        availableSeats.filter((availableSeat) => availableSeat !== seat)
       );
     }
   };

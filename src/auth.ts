@@ -20,7 +20,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             {
               email: credentials?.email,
               password: credentials?.password,
-            },
+            }
           );
           const user = response.data;
           if (user && user.success) {

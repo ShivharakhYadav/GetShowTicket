@@ -19,7 +19,7 @@ export const CarouselPlugin: React.FC<CarouselPluginProps> = ({
   showIndicators = false,
 }) => {
   const autoplay = React.useRef(
-    Autoplay({ delay: autoplayDelay, stopOnInteraction: false }),
+    Autoplay({ delay: autoplayDelay, stopOnInteraction: false })
   );
 
   return (

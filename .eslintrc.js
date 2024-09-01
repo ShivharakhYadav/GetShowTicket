@@ -44,7 +44,6 @@ module.exports = {
     "eol-last": ["error", "always"],
     "block-spacing": "error",
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
-    "comma-dangle": ["error", "always-multiline"],
     "computed-property-spacing": ["error", "never"],
     "func-call-spacing": ["error", "never"],
     "key-spacing": ["error", { beforeColon: false, afterColon: true }],

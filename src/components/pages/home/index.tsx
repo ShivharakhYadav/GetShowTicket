@@ -4,8 +4,8 @@ import Image from "next/image";
 import { ArrowRightSquare } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import { CarouselPlugin } from "@/components/CarouselPlugin";
-import { SliderMainItem } from "@/components/CarouselPlugin/partials/extension/carousel";
+import { CarouselPlugin } from "@/components/ui/custom/CarouselPlugin";
+import { SliderMainItem } from "@/components/ui/custom/CarouselPlugin/partials/extension/carousel";
 import {
   Carousel,
   CarouselContent,
