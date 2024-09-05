@@ -3169,7 +3169,7 @@ export const useSeatBooking = () => {
     if (selectedSeats.includes(seat)) {
       // setAvailableSeats([...availableSeats, seat]);
       setSelectedSeats(
-        selectedSeats.filter((reservedSeat) => reservedSeat !== seat),
+        selectedSeats.filter((reservedSeat) => reservedSeat !== seat)
       );
     } else {
       setSelectedSeats([...selectedSeats, seat]);
