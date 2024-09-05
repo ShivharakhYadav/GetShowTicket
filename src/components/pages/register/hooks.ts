@@ -46,7 +46,7 @@ export const useSignupForm = () => {
         });
       }
     },
-    [],
+    []
   );
 
   return { onSubmit, form };

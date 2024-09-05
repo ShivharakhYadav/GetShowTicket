@@ -1,7 +1,8 @@
 const appRoutes = {
   home: "/",
-  showDetail: (showName: string, id: number) =>
-    `/shows/${showName.replaceAll(" ", "-")}/${id}/`,
+  events: "/events",
+  eventDetails: (eventName: string, id: number) =>
+    `/events/${eventName.replaceAll(" ", "-")}/${id}/`,
 };
 
 export default appRoutes;

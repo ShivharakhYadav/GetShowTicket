@@ -1,18 +1,24 @@
-import Image from "next/image";
+"use client";
 
-import { CarouselPlugin } from "@/components/CarouselPlugin";
-import { SliderMainItem } from "@/components/CarouselPlugin/partials/extension/carousel";
+import Image from "next/image";
+import { ArrowRightSquare } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+import { CarouselPlugin } from "@/components/ui/custom/CarouselPlugin";
+import { SliderMainItem } from "@/components/ui/custom/CarouselPlugin/partials/extension/carousel";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import ShowCard from "@/components/showsList/partials/showCard";
-import { showsData } from "@/components/showsList/consts";
+import appRoutes from "@/config/appRoutes";
 
-const Home = async () => {
+import EventLists from "../events/partials/EventLists";
+import { events } from "../events/mocks";
+
+const Home = () => {
+  const router = useRouter();
   return (
     <div className="flex min-h-screen w-full flex-col">
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
@@ -35,9 +41,17 @@ const Home = async () => {
             ))}
           </CarouselPlugin>
         </div>
-        <h3 className="text-2xl font-semibold md:col-span-2 lg:col-span-4">
-          Recommended Shows
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-2xl font-semibold">Recommended Events</h3>
+          <span
+            className="flex cursor-pointer items-center text-lg font-medium text-blue-500"
+            onClick={() => router.push(appRoutes.events)}
+          >
+            See All
+            <ArrowRightSquare className="ml-2" />
+          </span>
+        </div>
+
         <Carousel
           opts={{
             align: "start",
@@ -45,11 +59,7 @@ const Home = async () => {
           className="w-full"
         >
           <CarouselContent>
-            {showsData.map((show, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5">
-                <ShowCard key={show.id} {...show} />
-              </CarouselItem>
-            ))}
+            <EventLists events={events.slice(0, 6)} />
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />

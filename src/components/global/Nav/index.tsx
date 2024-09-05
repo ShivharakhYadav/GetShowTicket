@@ -6,7 +6,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 const ThemeToggle = dynamic(() =>
-  import("@/components/theme/theme-toggle").then((mod) => mod.ThemeToggle),
+  import("@/components/theme/theme-toggle").then((mod) => mod.ThemeToggle)
 );
 
 import { menuItems } from "./consts";
