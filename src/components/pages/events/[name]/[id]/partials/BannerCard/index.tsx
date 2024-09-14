@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import Image from "next/image";
-import { RiFacebookBoxFill } from "react-icons/ri";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
+import React, { useState } from "react";
+import { RiFacebookBoxFill } from "react-icons/ri";
 
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import SeatBookingModal from "@/components/pages/seat-booking";
 
 import { BannerCardProps } from "./types";
 
@@ -49,7 +50,8 @@ const BannerCard: React.FC<BannerCardProps> = ({
               {info.split("|").join(" | ")}
             </p>
           </div>
-          <Button className="ml-4">Book</Button>
+          {/* <Button className="ml-4">Book</Button> */}
+          <SeatBookingModal date={date} title={title} key={title} />
         </div>
 
         <div className="flex items-center justify-between py-2">

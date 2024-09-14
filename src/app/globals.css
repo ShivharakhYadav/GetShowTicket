@@ -154,9 +154,10 @@
   width: 100%;
 }
 
+/* 
 .hide-scrollbar::-webkit-scrollbar {
-  width: 0px;
-}
+  width: 12px;
+} */
 
 .seat-layout tbody tr:hover {
   background-color: unset;
