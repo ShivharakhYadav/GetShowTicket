@@ -27,9 +27,7 @@ const AboutUs = () => {
 
       {/* Mission Section */}
       <div className="mb-12 rounded-lg p-8 shadow-lg">
-        <h2 className="mb-4 text-3xl font-semibold">
-          Our Mission
-        </h2>
+        <h2 className="mb-4 text-3xl font-semibold">Our Mission</h2>
         <p className="text-lg text-gray-700">
           Our mission is to create a seamless, user-friendly platform where fans
           can discover, book, and attend their favorite shows with ease. Whether
@@ -39,9 +37,7 @@ const AboutUs = () => {
       </div>
 
       {/* Team Section */}
-      <h2 className="mb-8 text-center text-3xl font-semibold">
-        Meet the Team
-      </h2>
+      <h2 className="mb-8 text-center text-3xl font-semibold">Meet the Team</h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Card className="shadow-lg">
           <CardHeader>
@@ -108,7 +104,7 @@ const AboutUs = () => {
 
       {/* Call to Action */}
       <div className="mt-16 text-center">
-        <Button className="rounded-lg  px-8 py-4 text-white shadow-lg">
+        <Button className="rounded-lg px-8 py-4 text-white shadow-lg">
           Explore Upcoming Shows
         </Button>
       </div>
