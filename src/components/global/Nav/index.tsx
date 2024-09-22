@@ -13,35 +13,41 @@ import { menuItems } from "./consts";
 
 const Nav = () => {
   const pathname = usePathname();
-  const isAuthRoute = ["/login", "/register"].includes(pathname);
   const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     setLoaded(true);
-  }, [setLoaded]);
+  }, []);
 
   return (
     <>
-      <nav className="fixed z-20 h-[69px] w-full bg-background p-4">
+      <nav
+        className={
+          "fixed z-20 h-[69px] w-full bg-gray-900 p-4 shadow-lg transition-colors duration-300"
+        }
+      >
         <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between">
-          <Link href="/" className="text-lg font-bold tracking-tight">
+          <Link
+            href="/"
+            className="text-lg font-bold tracking-tight text-white"
+          >
             Get Show Tickets
           </Link>
-          {!isAuthRoute &&
-            menuItems.map(({ url, label }) => (
-              <Link
-                key={label}
-                href={url}
-                className={`block rounded p-2 ${
-                  url === pathname ||
-                  (url.startsWith("/dashboard") &&
-                    pathname.startsWith("/dashboard"))
-                    ? "font-semibold"
-                    : "text-gray-500"
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
+          {menuItems.map(({ url, label }) => (
+            <Link
+              key={label}
+              href={url}
+              className={`block rounded p-2 ${
+                url === pathname ||
+                (url.startsWith("/dashboard") &&
+                  pathname.startsWith("/dashboard"))
+                  ? "font-semibold"
+                  : "text-gray-500"
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
           <header>
             {loaded ? (
               <ThemeToggle />
