@@ -3,11 +3,10 @@
 import Image from "next/image";
 import { ArrowRightSquare } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Carousel } from "react-responsive-carousel";
 
-import { CarouselPlugin } from "@/components/ui/custom/CarouselPlugin";
-import { SliderMainItem } from "@/components/ui/custom/CarouselPlugin/partials/extension/carousel";
 import {
-  Carousel,
+  Carousel as CarouselCard,
   CarouselContent,
   CarouselNext,
   CarouselPrevious,
@@ -16,31 +15,32 @@ import appRoutes from "@/config/appRoutes";
 
 import EventLists from "../events/partials/EventLists";
 import { events } from "../events/mocks";
+import { BANNER_IMAGES } from "./consts";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Home = () => {
   const router = useRouter();
   return (
     <div className="flex min-h-screen w-full flex-col">
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-        <div className="mt-4 md:mt-8">
-          <CarouselPlugin autoplayDelay={3000} showIndicators>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <SliderMainItem key={index} className="bg-transparent">
-                <div className="flex size-full items-center justify-center rounded-xl bg-background outline outline-1 outline-border">
-                  <Image
-                    src={`https://via.placeholder.com/800x600?text=Slide+${index + 1}`}
-                    alt={`Slide ${index + 1}`}
-                    className="h-auto w-full object-cover"
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    priority
-                  />
-                </div>
-              </SliderMainItem>
-            ))}
-          </CarouselPlugin>
-        </div>
+        <Carousel autoPlay infiniteLoop showStatus={false}>
+          {BANNER_IMAGES.map((imageUrl, index) => (
+            <div
+              className="relative h-64 w-full md:h-96"
+              key={index.toString()}
+            >
+              <Image
+                src={imageUrl}
+                alt={`Slide ${index + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+          ))}
+        </Carousel>
         <div className="flex items-center justify-between">
           <h3 className="text-2xl font-semibold">Recommended Events</h3>
           <span
@@ -52,7 +52,7 @@ const Home = () => {
           </span>
         </div>
 
-        <Carousel
+        <CarouselCard
           opts={{
             align: "start",
           }}
@@ -61,9 +61,9 @@ const Home = () => {
           <CarouselContent>
             <EventLists events={events.slice(0, 6)} />
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </CarouselCard>
       </main>
     </div>
   );
