@@ -3,7 +3,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 import { NEXT_AUTH_SECRET } from "./config/envs";
-import { LoginResponse } from "./types";
+import { apiRoutes } from "./config/apiRoutes";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -15,18 +15,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const response = await axios.post<LoginResponse>(
-            "http://localhost:4100/login",
-            {
-              email: credentials?.email,
-              password: credentials?.password,
-            }
-          );
-          const user = response.data;
-          if (user && user.success) {
-            return user.data;
-          } else {
-            return null;
+          const { data: user } = await axios.post(apiRoutes.login, {
+            email: credentials?.email,
+            password: credentials?.password,
+          });
+          if (user) {
+            return user;
           }
         } catch (error) {
           return null;

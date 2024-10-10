@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Children } from "@/types";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,7 +33,9 @@ const RootLayout: FC<Children> = ({ children }) => {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ReactQueryProvider>
+            <div>{children}</div>
+          </ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>
