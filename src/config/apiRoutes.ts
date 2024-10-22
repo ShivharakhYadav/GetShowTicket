@@ -1,6 +1,6 @@
-import { API_BASE_URL } from "./envs";
+import { buildApiUrl } from "@/utils/api";
 
 export const apiRoutes = {
-  login: `${API_BASE_URL}/api/auth/login`,
-  events: `${API_BASE_URL}/api/events`,
+  login: buildApiUrl("/api/auth/login"),
+  events: buildApiUrl("/api/events"),
 };
