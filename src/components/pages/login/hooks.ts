@@ -1,14 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useRouter } from "next/navigation";
 
 import { toast } from "@/components/ui/use-toast";
+import { authenticate } from "@/actions/authenticate";
+import appRoutes from "@/config/appRoutes";
 
 import { LoginFormSchema } from "./consts";
 
 export const useLoginForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof LoginFormSchema>>({
     resolver: zodResolver(LoginFormSchema),
     defaultValues: {
@@ -20,21 +23,18 @@ export const useLoginForm = () => {
   const onSubmit = useCallback(
     async (data: z.infer<typeof LoginFormSchema>) => {
       try {
-        const res = await signIn("credentials", {
-          email: data.email,
-          password: data.password,
-          redirect: false,
-        });
+        const res = await authenticate(data.email, data.password);
         if (res?.error) {
           toast({
             variant: "destructive",
             title: "Error",
-            description: "There was a problem with your request.",
+            description: res?.error,
           });
         } else {
           toast({
             description: "Loggedin Successfully.",
           });
+          router.push(appRoutes.home);
         }
       } catch (err) {
         toast({
@@ -44,7 +44,7 @@ export const useLoginForm = () => {
         });
       }
     },
-    []
+    [router]
   );
 
   return { onSubmit, form };
