@@ -1,8 +1,8 @@
 // next-auth.d.ts
-import { DefaultSession, DefaultUser } from "next-auth";
+import { DefaultSession } from "next-auth";
 
 // Extend the default user object returned by NextAuth.js
-declare module "next-auth" {
+export declare module "next-auth" {
   interface Session {
     user: {
       id: string;
@@ -12,10 +12,21 @@ declare module "next-auth" {
     } & DefaultSession["user"];
   }
 
-  interface User extends DefaultUser {
+  interface User {
     id: string;
     email: string;
     accessToken: string;
     refreshToken: string;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT extends DefaultJWT {
+    user: {
+      id: string;
+      email: string;
+      accessToken: string;
+      refreshToken: string;
+    };
   }
 }

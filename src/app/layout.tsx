@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Children } from "@/types";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import SessionWrapper from "@/providers/SessionWrapper";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,25 +22,28 @@ export const metadata = {
 
 const RootLayout: FC<Children> = ({ children }) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <SessionWrapper>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}
         >
-          <ReactQueryProvider>
-            <div>{children}</div>
-          </ReactQueryProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ReactQueryProvider>
+              <div>{children}</div>
+            </ReactQueryProvider>
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 };
 
