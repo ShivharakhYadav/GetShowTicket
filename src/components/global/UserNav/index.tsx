@@ -75,7 +75,7 @@ export const UserNav = () => {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <button className="w-full text-left" onClick={signOut}>
+          <button className="w-full text-left" onClick={() => signOut()}>
             Log out
           </button>
         </DropdownMenuItem>
