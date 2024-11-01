@@ -25,7 +25,6 @@ const EventCard: FC<Event> = ({
   rating,
   id,
 }) => {
-  console.log("called");
   const router = useRouter();
   return (
     <Card
