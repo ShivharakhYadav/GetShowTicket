@@ -33,7 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             password: credentials?.password,
           });
           if (user) {
-            return user;
+            return user.data;
           } else {
             return null;
           }
