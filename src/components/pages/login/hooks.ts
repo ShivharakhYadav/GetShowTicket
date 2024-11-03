@@ -28,7 +28,7 @@ export const useLoginForm = () => {
           toast({
             variant: "destructive",
             title: "Error",
-            description: res?.error,
+            description: res.error,
           });
         } else {
           toast({

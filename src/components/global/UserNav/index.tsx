@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import appRoutes from "@/config/appRoutes";
 import { Skeleton } from "@/components/ui/skeleton";
-import { signOut } from "@/auth";
 
 export const UserNav = () => {
   const router = useRouter();

@@ -32,41 +32,22 @@ const SignUpForm = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="grid gap-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="first-name">First name</Label>
-                    <FormField
-                      control={form.control}
-                      name="firstName"
-                      render={({ field }) => {
-                        return (
-                          <FormItem>
-                            <FormControl>
-                              <Input placeholder="First Name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        );
-                      }}
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="last-name">Last name</Label>
-                    <FormField
-                      control={form.control}
-                      name="lastName"
-                      render={({ field }) => {
-                        return (
-                          <FormItem>
-                            <FormControl>
-                              <Input placeholder="Last Name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        );
-                      }}
-                    />
-                  </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="username">Username</Label>
+                  <FormField
+                    control={form.control}
+                    name="username"
+                    render={({ field }) => {
+                      return (
+                        <FormItem>
+                          <FormControl>
+                            <Input placeholder="Username" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      );
+                    }}
+                  />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
