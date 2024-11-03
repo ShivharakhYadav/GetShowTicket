@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -9,11 +9,11 @@ const ThemeToggle = dynamic(() =>
   import("@/components/theme/theme-toggle").then((mod) => mod.ThemeToggle)
 );
 
-import { menuItems } from "./consts";
+// import { menuItems } from "./consts";
 import { UserNav } from "../UserNav";
 
 const Nav = () => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Nav = () => {
           </Link>
 
           {/* Center: Navigation Links */}
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             {menuItems.map(({ url, label }) => (
               <Link
                 key={label}
@@ -49,7 +49,7 @@ const Nav = () => {
                 {label}
               </Link>
             ))}
-          </div>
+          </div> */}
 
           {/* Right: Theme Toggle and UserNav */}
           <div className="ml-auto flex items-center space-x-4">

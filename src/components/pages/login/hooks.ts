@@ -3,9 +3,9 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 import { toast } from "@/components/ui/use-toast";
-import { authenticate } from "@/actions/authenticate";
 import appRoutes from "@/config/appRoutes";
 
 import { LoginFormSchema } from "./consts";
@@ -23,12 +23,17 @@ export const useLoginForm = () => {
   const onSubmit = useCallback(
     async (data: z.infer<typeof LoginFormSchema>) => {
       try {
-        const res = await authenticate(data.email, data.password);
+        const res = await signIn("credentials", {
+          email: data.email,
+          password: data.password,
+          callbackUrl: appRoutes.home,
+          redirect: false,
+        });
         if (res?.error) {
           toast({
             variant: "destructive",
             title: "Error",
-            description: res?.error,
+            description: res.error,
           });
         } else {
           toast({
