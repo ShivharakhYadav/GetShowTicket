@@ -2,13 +2,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 import { toast } from "@/components/ui/use-toast";
 import appRoutes from "@/config/appRoutes";
 
 import { LoginFormSchema } from "./consts";
-import { signIn } from "next-auth/react";
 
 export const useLoginForm = () => {
   const router = useRouter();
