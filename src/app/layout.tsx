@@ -23,7 +23,6 @@ export const metadata = {
 
 const RootLayout: FC<Children> = async ({ children }) => {
   const session = await getSession();
-  console.log("session", session);
   return (
     <SessionProvider {...{ session }}>
       <html lang="en" suppressHydrationWarning>
