@@ -1,6 +1,6 @@
 import { CarouselItem } from "@/components/ui/carousel";
+import { Event } from "@/services/events/types";
 
-import { Event } from "../../types";
 import EventCard from "../EventCard";
 
 const EventLists = ({ events }: { events: Event[] }) => {

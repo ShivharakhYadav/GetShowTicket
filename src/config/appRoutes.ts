@@ -4,7 +4,7 @@ const appRoutes = {
   contactUs: "/contact-us",
   events: "/events",
   login: "/login",
-  eventDetails: (eventName: string, id: number) =>
+  eventDetails: (eventName: string, id: string) =>
     `/events/${eventName.replaceAll(" ", "-")}/${id}/`,
 };
 
