@@ -1,13 +1,20 @@
 type ApprovalStatus = "Pending" | "Approved" | "Rejected";
 
 export interface Event {
-  event_name: string;
+  _id: string;
+  name: string;
   organizer_id: string;
   hall_id: string;
-  start_date: Date;
-  end_date: Date;
+  start_date: string; // ISO date string
+  end_date: string; // ISO date string
   approval_status: ApprovalStatus;
-  licence_document?: string;
-  hall_permit_document?: string;
-  is_deleted?: boolean;
+  is_deleted: boolean;
+  rating: number;
+  year: number;
+  img: string;
+}
+
+export interface EventResponse {
+  message: string;
+  data: Event[];
 }

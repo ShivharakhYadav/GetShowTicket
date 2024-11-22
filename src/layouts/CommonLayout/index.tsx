@@ -1,7 +1,6 @@
 import "../../styles/globals.css";
 
 import Footer from "@/components/global/Footer";
-import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import Nav from "@/components/global/Nav";
 
 const CommonLayout = async ({
@@ -12,10 +11,7 @@ const CommonLayout = async ({
   return (
     <>
       <Nav />
-      <ReactQueryProvider>
-        <div>{children}</div>
-      </ReactQueryProvider>
-
+      <div>{children}</div>
       <Footer />
     </>
   );

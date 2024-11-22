@@ -1,6 +1,4 @@
-import { Event } from "./types";
-
-export const events: Event[] = [
+export const events = [
   {
     id: 100,
     title: "Kingsglaive",
